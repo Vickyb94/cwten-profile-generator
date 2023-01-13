@@ -1,4 +1,4 @@
-const generateTeam = team => {
+const generateTeam = myTeam => {
    //generate manager card 
 const generateManager = manager => {
     return`
@@ -57,18 +57,18 @@ const generateEngineer = engineer => {
 };
 const html = [];
 //call manager role
-    html.push(team
+    html.push(myTeam
         .filter(employee => employee.getRole() === "Manager")
         .map(manager => generateManager(manager))
     );
     //call engineer role
-    html.push(team
+    html.push(myTeam
         .filter(employee => employee.getRole() === "Engineer")
         .map(engineer => generateEngineer(engineer))
         .join("")
     );
     //call intern role
-    html.push(team
+    html.push(myTeam
         .filter(employee => employee.getRole() === "Intern")
         .map(intern => generateIntern(intern))
         .join("")
@@ -77,7 +77,7 @@ const html = [];
     return html.join("");
 }
 //export to generate HTML page
-module.exports = team => {
+module.exports = myTeam => {
 
     return `
 <!DOCTYPE html>
@@ -103,7 +103,7 @@ module.exports = team => {
     <div class="container">
         <div class="row">
             <div class="row team-area col-12 d-flex justify-content-center">
-                ${generateTeam(team)}
+                ${generateTeam(myTeam)}
             </div>
         </div>
     </div>
