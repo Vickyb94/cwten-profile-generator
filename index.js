@@ -6,7 +6,7 @@ const path = require('path');
 const fs = require('fs');
 const inquirer = require('inquirer');
 const generateTeam = require('./src/templateHTML.js');
-const OUTPUT_DIR = path.resolve(__dirname, "output");
+const OUTPUT_DIR = path.resolve(__dirname, "dists");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 employeeArray = [];
@@ -101,7 +101,7 @@ function runApp () {
         ])
         .then(answers => {
           const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
-          employeeeArray.push(engineer);
+          employeeArray.push(engineer);
           generateEmployee();
         });
       }
@@ -146,9 +146,7 @@ function runApp () {
         fs.writeFileSync(outputPath, generateTeam(employeeArray), "UTF-8")
     
     }
-    
     generateEmployee();
-    
     }
     
     runApp();
