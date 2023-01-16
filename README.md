@@ -8,7 +8,7 @@ The user needs to download the code for the app or clone the code from my reposi
 
 ## Usage
 The user launches the application on vscode and opens the terminal. The app will be initiated by entering "node index.js" on the command line. The options are followed and the user inputs the relevant information. The option "team is full" triggers Team created alert and the output is saved. The team page can be viewed through the browser
-Screenshot of Team Profile - ![alt text](/images/team-profile.png)
+Screenshot of Webpage - ![alt text](/images/team-profile.png)
 Video Link - https://drive.google.com/file/d/1xkK29qTH6xqSPhm4vnHEpYgpgSO_misS/view
 
 ## Credits
@@ -17,10 +17,3 @@ https://www.w3schools.com/nodejs/ref_modules.asp
 
 ## License
 MIT
-
-
-
-
-
-
-https://drive.google.com/file/d/1OLhs00oRLEPjS5I8uPq9htQwOLl6ke_D/view
