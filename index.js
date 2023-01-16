@@ -10,9 +10,9 @@ const OUTPUT_DIR = path.resolve(__dirname, "dists");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 employeeArray = [];
-
+//function to run the application
 function runApp () {
-
+    //generates an employee
     function generateEmployee () {
         inquirer.prompt([{
             type: "list",
@@ -20,7 +20,7 @@ function runApp () {
             name: "addEmployeePrompt",
             choices: ["Manager", "Engineer", "Intern", "Team is full."]
           }])
-    
+         //returns the prompt to add another employee
         .then(function (userInput) {
         switch(userInput.addEmployeePrompt) {
           case "Manager":
@@ -37,6 +37,7 @@ function runApp () {
             }
         })
       }
+      //function to add manager and manager's info
       function addManager() {
         inquirer.prompt ([
           
@@ -63,14 +64,16 @@ function runApp () {
             name: "managerOfficeNumber",
             message: "Enter manager's office number!"
           }
-      
-        ]).then(answers => {
+        
+        ])
+        //returns manager's info based on answers provided
+        .then(answers => {
           const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerOfficeNumber);
           employeeArray.push(manager);
           generateEmployee();
         });
       }
-
+      //function to add engineer and info
       function addEngineer() {
         inquirer.prompt([
           
@@ -99,13 +102,14 @@ function runApp () {
           }
     
         ])
+        //returns engineer's info based on answers provided
         .then(answers => {
           const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
           employeeArray.push(engineer);
           generateEmployee();
         });
       }
-
+       //function to add intern
       function addIntern() {
         inquirer.prompt([
           
@@ -133,15 +137,17 @@ function runApp () {
             message: "Enter intern's school!"
           }
     
-        ]).then(answers => {
+        ])
+        //returns intern's info based on answers provided
+        .then(answers => {
           const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
           employeeArray.push(intern);
           generateEmployee();
         });
       }
-
+      //function to attach created team to the team html
       function htmlBuilder () {
-        console.log("Team created!")
+        console.log("Team created!") //alert after team has been created or option 'team is full is selected'
     
         fs.writeFileSync(outputPath, generateTeam(employeeArray), "UTF-8")
     

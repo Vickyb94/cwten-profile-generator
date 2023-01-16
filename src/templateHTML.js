@@ -56,18 +56,18 @@ const generateEngineer = engineer => {
     `;
 };
 const html = [];
-//call manager role
+//calling the Role for manager
     html.push(myTeam
         .filter(employee => employee.getRole() === "Manager")
         .map(manager => generateManager(manager))
     );
-    //call engineer role
+    //calling the Role for Engineer
     html.push(myTeam
         .filter(employee => employee.getRole() === "Engineer")
         .map(engineer => generateEngineer(engineer))
         .join("")
     );
-    //call intern role
+    //calling the Role of Intern
     html.push(myTeam
         .filter(employee => employee.getRole() === "Intern")
         .map(intern => generateIntern(intern))
